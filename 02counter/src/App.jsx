@@ -7,12 +7,15 @@ function App() {
   let [counter, setCounter] = useState(0)
 
   const addValue = () =>{
-    setCounter(prevCounter => prevCounter + 1)
+    // setCounter(prevCounter => prevCounter + 1)
+    setCounter(counter + 1)
 
       // counter = counter + 1
   }
   const removeValue = () =>{
-    setCounter(prevCounter => prevCounter - 1 )
+    // setCounter(prevCounter => prevCounter - 1 )
+    setCounter(counter - 1)
+
 
       // counter = counter - 1
   }
@@ -36,3 +39,6 @@ function App() {
 }
 
 export default App;
+
+
+
