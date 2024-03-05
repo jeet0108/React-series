@@ -1,8 +1,8 @@
 import './App.css'
 import { useEffect , useState } from 'react'
 import { ThemeProvider } from './contexts/theme'
-import Card from './components/Card'
 import ThemeBtn from './components/ThemeBtn'
+import Card from './components/Card'
 
 
 function App() {
