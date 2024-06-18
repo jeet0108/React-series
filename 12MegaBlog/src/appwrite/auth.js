@@ -33,19 +33,30 @@ export class AuthService {
     }
   }
 
-  async login({email, password}) {
+  // async login({email, password}) {
+  //   try {
+  //       return await this.account.createEmailPasswordSession(email, password);
+  //   } catch (error) {
+  //        throw error;
+    
+  //   }  
+  // }
+  async login({ email, password }) {
     try {
-        return await this.account.createEmailPasswordSession(email, password);
+        const session = await this.account.createEmailPasswordSession(email, password);
+        return session; // Return the session if successful
     } catch (error) {
-        throw error;
+        console.error("Error during login:", error.message);
+        throw new Error("Login failed. Please check your email and password."); // Throw a more user-friendly error message
     }
-    }   
+}
+
 
   async getCurrentUser() {
     try {
       return await this.account.get();
     } catch (error) {
-      console.log("Appwrite serive :: getCurrentUser :: error", error);
+      console.log("Appwrite service :: getCurrentUser :: error", error);
     }
 
     return null;
@@ -55,7 +66,7 @@ export class AuthService {
     try {
       await this.account.deleteSessions();
     } catch (error) {
-      console.log("Appwrite serive :: logout :: error", error);
+      console.log("Appwrite service :: logout :: error", error);
     }
   }
 }
